@@ -20,7 +20,7 @@ public class Start {
 
         try {
             MP3ManagerImpl mp3Manager = new MP3ManagerImpl();
-            MP3Properties mp3Properties = mp3Manager.read(new File("C:/Users/biliaievaTatiana/Downloads/khanna_-_luchshe_net_(zaycev.net).mp3"));
+            MP3Properties mp3Properties = mp3Manager.read(new File("/Users/tatianaBeliaieva/Downloads/Обнимай (zaycev.net).mp3"));
 
             System.out.println(mp3Properties.getBand());
             System.out.println(mp3Properties.getAlbum());
@@ -37,7 +37,7 @@ public class Start {
 
             mp3Manager.write(mp3Properties);
 
-            MP3Properties mp3Properties1 = mp3Manager.read(new File("C:/Users/biliaievaTatiana/Downloads/khanna_-_luchshe_net_(zaycev.net).mp3"));
+            MP3Properties mp3Properties1 = mp3Manager.read(new File("/Users/tatianaBeliaieva/Downloads/Обнимай (zaycev.net).mp3"));
 
             System.out.println(mp3Properties1.getBand());
             System.out.println(mp3Properties1.getAlbum());

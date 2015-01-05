@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by BiliaievaTatiana on 1/5/15.
  */
-public class MP3PropertiesImpl implements MP3Properties {
+public final class MP3PropertiesImpl implements MP3Properties {
     private Map<String, Frame> frameList;
     private File file;
 

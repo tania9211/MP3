@@ -1,6 +1,5 @@
 package read.mp3;
 
-import org.apache.log4j.Logger;
 import read.mp3.frame.Config;
 import read.mp3.frame.Frame;
 import read.mp3.frame.FrameTypes;
@@ -13,11 +12,14 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created by BiliaievaTatiana on 1/5/15.
  */
-public class MP3ManagerImpl implements MP3Manager {
-    private Logger logger = Logger.getLogger(MP3PropertiesImpl.class);
+public final class MP3ManagerImpl implements MP3Manager {
+    private Logger logger = LoggerFactory.getLogger(MP3ManagerImpl.class);
 
     @Override
     public void write(MP3Properties properties) throws IOException {
