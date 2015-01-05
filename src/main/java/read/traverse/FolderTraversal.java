@@ -1,7 +1,7 @@
 package read.traverse;
 
 import read.mp3.MP3Instance;
-import read.mp3.MP3Manager;
+import read.mp3.MP3Manager12;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,11 +18,11 @@ public class FolderTraversal {
     }
 
     private void recursive(File file) {
-        MP3Manager mp3Manager = new MP3Manager();
+        MP3Manager12 mp3Manager12 = new MP3Manager12();
         try {
             if (fileFornat.equals(Files.probeContentType(file.toPath()))) {
                 MP3Instance mp3Instance = new MP3Instance();
-                mp3Manager.read(file, mp3Instance);
+                mp3Manager12.read(file, mp3Instance);
                 System.out.println(mp3Instance.getSongName() + "  " + mp3Instance.getBand());
             }
 

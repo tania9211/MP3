@@ -1,6 +1,6 @@
 import org.junit.Test;
 import read.mp3.MP3Instance;
-import read.mp3.MP3Manager;
+import read.mp3.MP3Manager12;
 import read.mp3.frame.Config;
 
 import java.io.File;
@@ -60,10 +60,10 @@ public class TestReadWrite {
     @Test
     public void testWriteInfo() {
         File file = initSong();
-        MP3Manager mp3Manager = new MP3Manager();
+        MP3Manager12 mp3Manager12 = new MP3Manager12();
         MP3Instance mp3Instance = new MP3Instance();
 
-        mp3Manager.read(file, mp3Instance);
+        mp3Manager12.read(file, mp3Instance);
 
         mp3Instance.setGenre("Pop");
         mp3Instance.setYear("3080");
@@ -71,22 +71,22 @@ public class TestReadWrite {
         mp3Instance.setSongName("Tania song");
         mp3Instance.setBand("My band");
 
-        mp3Manager.write(file, mp3Instance);
+        mp3Manager12.write(file, mp3Instance);
 
         mp3Instance.setSongName("Tania1");
         mp3Instance.setBand("TaniaBand");
 
-        mp3Manager.write(file, mp3Instance);
-        mp3Manager.read(file, mp3Instance);
+        mp3Manager12.write(file, mp3Instance);
+        mp3Manager12.read(file, mp3Instance);
     }
 
     @Test
     public void testInfo() {
         File file = initSong();
-        MP3Manager mp3Manager = new MP3Manager();
+        MP3Manager12 mp3Manager12 = new MP3Manager12();
         MP3Instance mp3Instance = new MP3Instance();
 
-     //   mp3Manager.read(file, mp3Instance);
+     //   mp3Manager12.read(file, mp3Instance);
 
         mp3Instance.setGenre("Pop");
         mp3Instance.setYear("3080");
@@ -94,7 +94,7 @@ public class TestReadWrite {
         mp3Instance.setSongName("Tania song");
         mp3Instance.setBand("My band");
 
-        mp3Manager.write(file, mp3Instance);
-        mp3Manager.read(file, mp3Instance);
+        mp3Manager12.write(file, mp3Instance);
+        mp3Manager12.read(file, mp3Instance);
     }
 }

@@ -9,15 +9,7 @@ public class Frame {
     private String frameValue;
     private int frameSize;
     private int positionInFile;
-  //  private String realValueInFile;
-
- /*   public String getRealValueInFile() {
-        return realValueInFile;
-    }
-
-    public void setRealValueInFile(String realNameInFile) {
-        this.realValueInFile = realNameInFile;
-    }*/
+    private boolean rewrited;
 
     public Frame(String frameName) {
         this.frameName = frameName;
@@ -58,5 +50,13 @@ public class Frame {
 
     public void setFrameSize(int frameSize) {
         this.frameSize = frameSize;
+    }
+
+    public boolean isRewrited() {
+        return rewrited;
+    }
+
+    public void setRewrited(boolean rewrited) {
+        this.rewrited = rewrited;
     }
 }
