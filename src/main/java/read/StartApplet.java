@@ -1,5 +1,6 @@
 package read;
 
+import java.applet.Applet;
 import java.awt.Panel;
 import java.io.File;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import javax.swing.JFileChooser;
 import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class StartApplet {
+public class StartApplet extends Applet {
 	private List<File> fileList;
 	private JFileChooser jFileChooser;
 
@@ -39,15 +40,15 @@ public class StartApplet {
 
 	public void popUpFileChooser() {
 		try {
-			SwingUtilities.invokeLater(new Runnable() {
+			SwingUtilities.invokeAndWait(new Runnable() {
 
 				@Override
 				public void run() {
+					logger.debug("popUpFileChooser invoked");
 					int result = jFileChooser.showOpenDialog(new Panel());
 					if (result == JFileChooser.APPROVE_OPTION) {
 						getFileList(jFileChooser);
 					}
-					logger.debug("popUpFileChooser invoked");
 				}
 			});
 		} catch (Throwable e) {
@@ -85,6 +86,8 @@ public class StartApplet {
 
 		for (int i = 0; i < fileList.size(); i++) {
 			JSONObject jsonObject = new JSONObject();
+
+			//logger.debug("put " + fileList.get(i).getAbsolutePath());
 
 			jsonObject.put("name", fileList.get(i).getName());
 			jsonObject.put("fullPath", fileList.get(i).getAbsolutePath());
@@ -125,6 +128,7 @@ public class StartApplet {
 				JSONObject jsonObject = (JSONObject) jsonArray.get(i);
 				String columnValue = (String) jsonObject.get("columnValue");
 				String columnType = (String) jsonObject.get("columnType");
+				logger.debug("getInfo " + columnValue + "  !!     " + columnType);
 			}
 
 			logger.debug("setSongInformation invoked");
