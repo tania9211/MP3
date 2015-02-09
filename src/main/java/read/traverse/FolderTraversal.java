@@ -6,35 +6,40 @@ import read.mp3.MP3Manager12;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by BiliaievaTatiana on 12/29/14.
  */
 public class FolderTraversal {
-    private final String fileFornat = "audio/mpeg";
+	private List<File> fileList;
+	private Logger logger = LoggerFactory.getLogger(FolderTraversal.class);
 
-    public void traversal(String path) {
-        recursive(new File(path));
-    }
+	public List<File> traversal(String path) {
+		fileList = new ArrayList<File>();
 
-    private void recursive(File file) {
-        MP3Manager12 mp3Manager12 = new MP3Manager12();
-        try {
-            if (fileFornat.equals(Files.probeContentType(file.toPath()))) {
-                MP3Instance mp3Instance = new MP3Instance();
-                mp3Manager12.read(file, mp3Instance);
-                System.out.println(mp3Instance.getSongName() + "  " + mp3Instance.getBand());
-            }
+		recursive(new File(path));
 
-            if (file.isDirectory()) {
-                String[] subnode = file.list();
+		return fileList;
+	}
 
-                for (int i = 0; i < subnode.length; i++) {
-                    recursive(new File(file, subnode[i]));
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+	private void recursive(File file) {
+		logger.debug(file.getPath());
+		if (file.getName().indexOf("mp3") > 0) {
+			fileList.add(file);
+		}
+
+		if (file.isDirectory()) {
+			String[] subnode = file.list();
+
+			for (int i = 0; i < subnode.length; i++) {
+				recursive(new File(file, subnode[i]));
+			}
+		}
+	}
+
 }
