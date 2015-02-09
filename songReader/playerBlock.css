@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#playerContent {
+    border: 1px solid black;
+    background-color: antiquewhite;
+    width: 800px;
+    height: 600px;
+}
+
+#libraryContent {
+    background-color: green;
+    width: 800px;
+    height: 600px;
+}
+
+#songBlock {
+    background-color: aquamarine;
+    width: 50%;
+    height: 100%;
+    float: left;
+/ / border : 1 px solid black;
+}
+
+#songsListBlock {
+    height: 30%;
+    width: 90%;
+    margin: auto;
+    overflow-y: auto;
+}
+
+#selectedFilesBlock {
+/ / background-color : blueviolet;
+    width: 50%;
+    height: 100%;
+    float: right;
+    display: inline-block;
+/ / border : 1 px solid black;
+}
+
+#playerBlock {
+/ / border : 1 px solid black;
+    width: 100%;
+    height: 30%;
+}
+
+#songInfoBlock {
+/ / border : 1 px solid black;
+    width: 100%;
+    height: 69%;
+/ / display : block;
+}
+
+#editFileCheckbox {
+    border: 1px solid black;
+    float: right;
+    padding-right: 5%;
+    padding-top: 2%;
+}
+
+#tableBlock {
+    border: 1px solid black;
+    height: 80%;
+    clear: right;
+}
+
+#tableElement, td, tr {
+    padding: 2%;
+}
+
+#tableElement {
+    padding: 5%;
+    width: 80%;
+    margin: auto;
+}
+
+#buttonSaveBlock {
+    width: 40%;
+    border: 1px solid black;
+    float: right;
+    padding-right: 5%;
+    padding-top: 2%;
+}
+
+#fileListTable {
+    text-align: left;
+    width: 100%;
+}
+
+#songsList, th, td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 2px;
+}
+
+#songsList tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
+#songsList tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+#songsList tr:hover {
+    background-color: #D3D3D3;
+}
+
+#songsList tr:active {
+    background-color: #D3D3D3;
+}
