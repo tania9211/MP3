@@ -1,16 +1,13 @@
 package read.traverse;
 
-import read.mp3.MP3Instance;
-import read.mp3.MP3Manager12;
-
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import read.mp3.frame.Config;
 
 /**
  * Created by BiliaievaTatiana on 12/29/14.
@@ -28,8 +25,8 @@ public class FolderTraversal {
 	}
 
 	private void recursive(File file) {
-		logger.debug(file.getPath());
-		if (file.getName().indexOf("mp3") > 0) {
+		logger.debug("Add file to list" + file.getPath());
+		if (file.getName().indexOf(Config.MP3_FORMAT) > 0) {
 			fileList.add(file);
 		}
 
