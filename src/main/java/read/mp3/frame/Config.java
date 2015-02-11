@@ -31,5 +31,13 @@ public class Config {
     public static int FRAME_FLAGS_LENGHT = 2;
 
     public static int ENCODE_VALUE_LENHGT = 1;
+    
+    public static String COLUMN_TYPE = "columnType";
+    public static String COLUMN_VALUE = "columnValue";
+    
+    public static String SONG_NAME ="songName";
+    public static String SONG_PATH = "songPath";
+    
+    public static String MP3_FORMAT = "mp3";
 }
 
