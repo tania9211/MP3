@@ -24,4 +24,8 @@ public interface MP3Properties {
     public File getFile();
 
     public Map<String, Frame> getFrameList();
+    
+    public String toJSONString();
+    public String toJSONStringBuilder();
+    public String toJSONStringBuffer();
 }
