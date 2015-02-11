@@ -14,19 +14,17 @@
         <ul>
             <li><a id="playerElement" ng-click="showPlayerBlock()" href="#">Player</a>
                 <ul>
-                    <li><a href="#">Select file</a></li>
+                    <li class="getInfoButton"><a href="#">Select file</a></li>
                     <li><a href="#">Another option</a></li>
                 </ul>
             </li>
             <li><a id="libraryElement" ng-click="showLibraryBlock()" href="#">Library</a></li>
         </ul>
     </nav>
-    <!-- <input type="file" ng-model="fileName" id="fileId" multiple="">
-     <button id="updateButton">Show</button>-->
-    <!--<div id="playerContent" ng-hide="hidePlayerBlock" ng-controller="testController">-->
+
     <div id="playerContent" ng-hide="hidePlayerBlock" ng-controller="appletController">
         <div id="songBlock">
-            <div id="playerBlock"></div>
+            <div id="playerBlock">Player for song</div>
             <div id="songInfoBlock" ng-controller="testController">
                 <div id="editFileCheckbox"><input type="checkbox" ng-model="canEditSong"/>Edit file</div>
                 <div id="tableBlock">
@@ -39,25 +37,23 @@
                     </table>
                 </div>
                 <div id="buttonSaveBlock">
-                    <button ng-click="saveSongInfomation()">Save</button>
+                    <button id="saveButton" ng-click="saveSongInfomation()" ng-disabled="canEditSong">Save</button>
                 </div>
             </div>
         </div>
 
-        <div id="selectedFilesBlock">
-            <button id="getInfoButton">Get applet info</button>
-            <!--  <button onclick="getName()">Get name</button>-->
-            <APPLET archive="MP3-0.0.1-SNAPSHOT-jar-with-dependencies.jar" CODE="read.StartApplet.class"
-                    id="songInfoApplet" width=0 height=0>
-            </APPLET>
-            <div id="songsListBlock">
-                <table id="songsList">
-                    <tr ng-click="callSongInfo(file.fullPath)" ng-repeat="file in fileListArray">
-                        <td>{{file.name}}</td>
-                    </tr>
-                </table>
+            <div id="selectedFilesBlock" class="getInfoButton">
+                <APPLET archive="MP3-0.0.1-SNAPSHOT-jar-with-dependencies.jar" CODE="read.StartApplet.class"
+                        id="songInfoApplet" width="0" height="0">
+                </APPLET>
+                <div id="songsListBlock">
+                    <table id="songsList">
+                        <tr ng-click="callSongInfo(file.songPath)" ng-repeat="file in fileListArray">
+                            <td>{{file.songName}}</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-        </div>
     </div>
     <div id="libraryContent" ng-hide="hideLibraryBlock"></div>
 </div>
